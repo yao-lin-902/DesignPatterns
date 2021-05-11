@@ -2,10 +2,12 @@ using System;
 using System.Collections.Generic;
 using System.Threading;
 
-public class Singleton {
+public class Program {
 	static void Main(string[] args) {
+		// client code
 		Database d1 = Database.get_instance();
 		Database d2 = Database.get_instance();
+
 		if (d1 == d2)
 			System.Console.WriteLine("Singleton worked!");
 
@@ -15,8 +17,10 @@ public class Singleton {
 		d1.insert_data(24);
 		d1.insert_data(2);
 
-		System.Console.WriteLine(d2.get_data(1));
+		d2.sort_data();
 
+		Database d3 = Database.get_instance();
+		System.Console.WriteLine(d3.get_data(1));
 	}
 }
 
@@ -54,5 +58,9 @@ public class Database {
 
 	public int get_data(int index) {
 		return data_[index];
+	}
+
+	public void sort_data() {
+		data_.Sort();
 	}
 }
