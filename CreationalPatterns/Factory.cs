@@ -60,6 +60,7 @@ class Circle : Shape {
 
 // main factory class
 abstract class ShapeCreator {
+	// factory method
 	public abstract Shape create_shape();
 	public void draw_shape(Shape s) {
 		s.draw();
